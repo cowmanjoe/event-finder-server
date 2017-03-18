@@ -1,0 +1,13 @@
+#parse("/views/layout.vm")
+#@mainLayout()
+
+<form method="post">
+    Attraction name:<br>
+    <input type="text" name="name"><br>
+    Latitude:<br>
+    <input type="number" step="0.000001" name="latitude"><br>
+    Longitude:<br>
+    <input type="number" step="0.000001" name="longitude"><br>
+    <input type="submit" value="Submit">
+</form>
+#end

@@ -1,0 +1,18 @@
+#macro(mainLayout)
+<html>
+<head>
+    <title>Test Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header>
+    Test Header
+</header>
+<main>
+    <div id="content">
+        $bodyContent
+    </div>
+</main>
+</body>
+</html>
+#end

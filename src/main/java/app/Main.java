@@ -2,6 +2,7 @@ package app;
 
 import app.attraction.AttractionController;
 import app.attraction.AttractionService;
+import app.index.IndexController;
 import app.util.JsonUtil;
 
 import static spark.Spark.*;
@@ -16,6 +17,10 @@ public class Main {
 
         attractionService = new AttractionService();
         port(9859);
+
         get("/attractions/", AttractionController.fetchAllAttractions, JsonUtil.json());
+
+        get("/index/", IndexController.serveIndexPage);
+        post("/index/", IndexController.addNewAttraction);
     }
 }

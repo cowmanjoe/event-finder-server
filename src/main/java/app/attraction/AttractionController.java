@@ -1,5 +1,6 @@
 package app.attraction;
 
+import app.index.IndexController;
 import app.util.JsonUtil;
 import spark.Request;
 import spark.Response;
@@ -15,5 +16,6 @@ import static app.Main.attractionService;
 public class AttractionController {
 
     public static Route fetchAllAttractions = (Request req, Response res) -> attractionService.getAttractions();
+
 
 }

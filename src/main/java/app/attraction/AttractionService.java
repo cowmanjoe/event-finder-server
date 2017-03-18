@@ -9,27 +9,15 @@ import java.util.List;
 public class AttractionService {
 
     private List<Attraction> attractions;
+    private volatile int nextId;
 
     public AttractionService() {
         attractions = new ArrayList<>();
+        nextId = 0;
 
         //dummy values
-        Attraction a1 = new Attraction();
-        a1.setId(0);
-        a1.setLongitude(5.5f);
-        a1.setLatitude(1.43f);
-        a1.setName("Romp in the woods");
-        a1.setType(Attraction.Type.OTHER);
-
-        Attraction a2 = new Attraction();
-        a2.setId(1);
-        a2.setLongitude(65.444f);
-        a2.setLatitude(-32.223f);
-        a2.setName("Lit party");
-        a2.setType(Attraction.Type.PARTY);
-
-        attractions.add(a1);
-        attractions.add(a2);
+        createAttraction("Romp in the woods", 5.5f, 1.43f);
+        createAttraction("Lit party", 65.444f, -32.223f, Attraction.Type.SOCIAL);
     }
 
     public Iterable<Attraction> getAttractions() { return attractions; }
@@ -41,5 +29,29 @@ public class AttractionService {
             }
         }
         return null;
+    }
+
+    public Attraction createAttraction(String name, float latitude, float longitude) {
+        Attraction a = new Attraction();
+        a.setId(nextId++);
+        a.setLongitude(longitude);
+        a.setLatitude(latitude);
+        a.setName(name);
+        a.setType(Attraction.Type.OTHER);
+
+        attractions.add(a);
+        return a;
+    }
+
+    public Attraction createAttraction(String name, float latitude, float longitude, Attraction.Type type) {
+        Attraction a = new Attraction();
+        a.setId(nextId++);
+        a.setLongitude(longitude);
+        a.setLatitude(latitude);
+        a.setName(name);
+        a.setType(type);
+
+        attractions.add(a);
+        return a;
     }
 }

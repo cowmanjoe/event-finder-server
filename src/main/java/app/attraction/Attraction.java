@@ -51,10 +51,13 @@ public class Attraction {
     }
 
     public enum Type {
+        BUSINESS,
+        ARTS,
+        TECH,
+        HEALTH,
         FOOD,
-        PARTY,
-        EDUCATIONAL,
-        ART,
+        SPORTS,
+        SOCIAL,
         OTHER
     }
 }
