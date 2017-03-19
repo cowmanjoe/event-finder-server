@@ -28,7 +28,8 @@ public class IndexController {
                 req.queryParams("name"),
                 Float.parseFloat(req.queryParams("latitude")),
                 Float.parseFloat(req.queryParams("longitude")),
-                Attraction.Type.valueOf(req.queryParams("type"))
+                Attraction.Type.valueOf(req.queryParams("type")),
+                req.queryParams("description")
         );
         return IndexController.serveIndexPage.handle(req, res);
     };

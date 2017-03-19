@@ -9,6 +9,7 @@ public class Attraction {
     private float latitude;
     private float longitude;
     private Type type;
+    private String description;
 
     public String getName() {
         return name;
@@ -48,6 +49,14 @@ public class Attraction {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public enum Type {
