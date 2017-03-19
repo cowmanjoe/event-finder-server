@@ -40,6 +40,7 @@ public class AttractionService {
         a.setName(name);
         a.setType(Attraction.Type.OTHER);
         a.setDescription("");
+        a.setDateTime("");
 
         attractions.add(a);
         return a;
@@ -53,6 +54,7 @@ public class AttractionService {
         a.setName(name);
         a.setType(type);
         a.setDescription("");
+        a.setDateTime("");
         attractions.add(a);
         return a;
     }
@@ -65,6 +67,7 @@ public class AttractionService {
         a.setName(name);
         a.setType(type);
         a.setDescription(description);
+        a.setDateTime("");
 
         attractions.add(a);
         return a;

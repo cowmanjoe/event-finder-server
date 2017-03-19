@@ -28,6 +28,7 @@ public class Main {
 	    before("*", Filters.addTrailingSlashes);
 
         get("/attractions/", AttractionController.fetchAllAttractions, JsonUtil.json());
+        get("/attractionsNear/", AttractionController.fetchAttractionsByDistance, JsonUtil.json()); 
 
         get("/index/", IndexController.serveIndexPage);
         post("/index/", IndexController.addNewAttraction);

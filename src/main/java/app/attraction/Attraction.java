@@ -11,6 +11,9 @@ public class Attraction {
     private Type type;
     private String description;
 
+    // format: MMM DD, YYYY TT:TT   e.g MAR 08, 1994 23:33
+    private String dateTime;
+
     public String getName() {
         return name;
     }
@@ -57,6 +60,15 @@ public class Attraction {
 
     public String getDescription() {
         return description;
+    }
+
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getDateTime() {
+        return dateTime;
     }
 
     public enum Type {
