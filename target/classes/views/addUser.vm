@@ -1,0 +1,14 @@
+#parse("/views/layout.vm")
+#@mainLayout()
+
+<form method="post">
+    Username:<br>
+    <input type="text" name="username"><br>
+    <input type="submit" value="Submit">
+    #if ($userAdded)
+    <strong>User added!</strong>
+    #elseif ($userAddFailed)
+    <strong>User already exists!</strong>
+    #end
+</form>
+#end

@@ -31,7 +31,10 @@ public class Main {
 
         get("/index/", IndexController.serveIndexPage);
         post("/index/", IndexController.addNewAttraction);
+
         get("/users/", UserController.fetchAllUsers, JsonUtil.json());
 
+        get("/addUser/", UserController.serveAddUserPage(false, false));
+        post("/addUser/", UserController.addNewUser);
     }
 }

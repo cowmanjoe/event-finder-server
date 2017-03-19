@@ -18,16 +18,32 @@ public class UserService {
         // dummy values
         User u1 = new User("David", "1234");
         users.add(u1);
+
+        User u2 = new User("Cowan", "password");
+        users.add(u2);
     }
 
     public Iterable<User> getUsers() {return users;}
 
     public User getUser(String username) {
         for (User u : users) {
-            if (u.getUsername() == username) {
+            if (u.getUsername().equals(username)) {
                 return u;
             }
         }
         return null;
+    }
+
+    public boolean addUser(String username) {
+        for (User u : users) {
+            if (u.getUsername().equals(username)) {
+                return false;
+            }
+        }
+        User user = new User();
+        user.setUsername(username);
+        user.setHashedpassword("password");
+        users.add(user);
+        return true;
     }
 }
