@@ -11,20 +11,14 @@ import static java.util.Objects.hash;
  */
 public class User {
     private String username;
-    private String hashedpassword;
+    private int hashedpassword;
     private static final int saltLen = 32;
     private static final int desiredKeyLen = 256;
 
 
     public User(String username, String password) {
         this.username = username;
-        try {
-            hashedpassword = getSaltedHash(password);
-        }
-        catch (Exception e) {
-            System.err.println("InvalidPassword" + e.getMessage());
-        }
-
+        hashedpassword = hash(password);
    }
 
     public User() {
@@ -38,30 +32,18 @@ public class User {
         this.username = username;
     }
 
-    public String getHashedpassword() {
+    public int getHashedpassword() {
         return hashedpassword;
     }
 
     public void setHashedpassword(String password) {
-        try {
-            hashedpassword = getSaltedHash(password);
-        }
-        catch (Exception e) {
-            System.err.println("InvalidPassword" + e.getMessage());
-        }
+        hashedpassword = hash(password);
     }
 
 
 
 
 
-
-    public static String getSaltedHash(String password) throws Exception {
-        byte [] salt = SecureRandom.getInstance("SHA1PRNG").generateSeed(saltLen);
-        // stores salt with the password
-        return Base64.encode(salt) + "$" + hash(password, salt);
-
-    }
 
 
 }

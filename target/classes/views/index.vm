@@ -7,6 +7,7 @@
     Latitude:<br>
     <input type="number" step="0.000001" name="latitude"><br>
     Longitude:<br>
+    Type:<br>
     <input type="number" step="0.000001" name="longitude"><br>
     <input type="radio" name="type" value="BUSINESS"> Business <br>
     <input type="radio" name="type" value="ARTS"> Arts <br>
@@ -16,6 +17,8 @@
     <input type="radio" name="type" value="SPORTS"> Sports <br>
     <input type="radio" name="type" value="SOCIAL"> Social <br>
     <input type="radio" name="type" value="OTHER"> Other <br>
+    Description:<br>
+    <input type="text" name="description"><br>
 
     <input type="submit" value="Submit">
 </form>

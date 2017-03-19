@@ -18,6 +18,7 @@ public class AttractionService {
         //dummy values
         createAttraction("Romp in the woods", 5.5f, 1.43f);
         createAttraction("Lit party", 65.444f, -32.223f, Attraction.Type.SOCIAL);
+        createAttraction("420", 5.5f, 24.33f, Attraction.Type.HEALTH, "Good shit");
     }
 
     public Iterable<Attraction> getAttractions() { return attractions; }
@@ -38,6 +39,7 @@ public class AttractionService {
         a.setLatitude(latitude);
         a.setName(name);
         a.setType(Attraction.Type.OTHER);
+        a.setDescription("");
 
         attractions.add(a);
         return a;
@@ -50,6 +52,19 @@ public class AttractionService {
         a.setLatitude(latitude);
         a.setName(name);
         a.setType(type);
+        a.setDescription("");
+        attractions.add(a);
+        return a;
+    }
+
+    public Attraction createAttraction(String name, float latitutde, float longitude, Attraction.Type type, String description) {
+        Attraction a = new Attraction();
+        a.setId(nextId++);
+        a.setLatitude(latitutde);
+        a.setLongitude(longitude);
+        a.setName(name);
+        a.setType(type);
+        a.setDescription(description);
 
         attractions.add(a);
         return a;
