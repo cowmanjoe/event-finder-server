@@ -1,6 +1,7 @@
 package app.index;
 
 import app.Main;
+import app.attraction.Attraction;
 import app.util.ViewUtil;
 import spark.Request;
 import spark.Response;
@@ -26,7 +27,8 @@ public class IndexController {
         attractionService.createAttraction(
                 req.queryParams("name"),
                 Float.parseFloat(req.queryParams("latitude")),
-                Float.parseFloat(req.queryParams("longitude"))
+                Float.parseFloat(req.queryParams("longitude")),
+                Attraction.Type.valueOf(req.queryParams("type"))
         );
         return IndexController.serveIndexPage.handle(req, res);
     };

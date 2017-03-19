@@ -2,12 +2,21 @@
 #@mainLayout()
 
 <form method="post">
-    Attraction name:<br>
+    Event name:<br>
     <input type="text" name="name"><br>
     Latitude:<br>
     <input type="number" step="0.000001" name="latitude"><br>
     Longitude:<br>
     <input type="number" step="0.000001" name="longitude"><br>
+    <input type="radio" name="type" value="BUSINESS"> Business <br>
+    <input type="radio" name="type" value="ARTS"> Arts <br>
+    <input type="radio" name="type" value="TECH"> Tech <br>
+    <input type="radio" name="type" value="HEALTH"> Health <br>
+    <input type="radio" name="type" value="FOOD"> Food <br>
+    <input type="radio" name="type" value="SPORTS"> Sports <br>
+    <input type="radio" name="type" value="SOCIAL"> Social <br>
+    <input type="radio" name="type" value="OTHER"> Other <br>
+
     <input type="submit" value="Submit">
 </form>
 #end
