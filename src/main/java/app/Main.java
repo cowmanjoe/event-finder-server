@@ -5,6 +5,7 @@ import app.attraction.AttractionService;
 import app.index.IndexController;
 import app.user.UserController;
 import app.user.UserService;
+import app.util.Filters;
 import app.util.JsonUtil;
 
 import static spark.Spark.*;
@@ -17,10 +18,14 @@ public class Main {
     public static UserService userService;
 
     public static void main(String[] args) {
-	userService = new UserService();
+	    userService = new UserService();
         attractionService = new AttractionService();
-        
-	port(9859);
+
+
+
+	    port(9859);
+
+	    before("*", Filters.addTrailingSlashes);
 
         get("/attractions/", AttractionController.fetchAllAttractions, JsonUtil.json());
 
