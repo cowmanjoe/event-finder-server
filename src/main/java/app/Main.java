@@ -3,6 +3,8 @@ package app;
 import app.attraction.AttractionController;
 import app.attraction.AttractionService;
 import app.index.IndexController;
+import app.user.UserController;
+import app.user.UserService;
 import app.util.JsonUtil;
 
 import static spark.Spark.*;
@@ -12,15 +14,19 @@ import static spark.Spark.*;
 public class Main {
 
     public static AttractionService attractionService;
+    public static UserService userService;
 
     public static void main(String[] args) {
-
+	userService = new UserService();
         attractionService = new AttractionService();
-        port(9859);
+        
+	port(9859);
 
         get("/attractions/", AttractionController.fetchAllAttractions, JsonUtil.json());
 
         get("/index/", IndexController.serveIndexPage);
         post("/index/", IndexController.addNewAttraction);
+        get("/users/", UserController.fetchAllUsers, JsonUtil.json());
+
     }
 }
